@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'lhsdb-lottery'`, () => {
+  it(`should have as title 'mon-application'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('lhsdb-lottery');
+    expect(app.title).toEqual('mon-application');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('lhsdb-lottery app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('mon-application app is running!');
   });
 });
