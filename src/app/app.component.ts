@@ -74,8 +74,8 @@ export class AppComponent implements OnInit {
       i++;
     }
 
-    for (let team of this.results) {
-
+    for (let j= this.results.length-1; j>=0; j--) {
+      let team = this.results[j];
       if (this.finalStandings.indexOf(team) > 0) {
         this.finalStandings.splice(this.finalStandings.indexOf(team), 1);
         this.finalStandings.unshift(team);
