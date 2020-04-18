@@ -24,7 +24,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Lotterie 2020';
+  title = 'Loterie 2020';
   draftDone: boolean = false;
   displayResultsDone: boolean = false;
 
