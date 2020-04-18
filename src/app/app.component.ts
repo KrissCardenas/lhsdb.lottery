@@ -1,24 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit {
-  title = 'Lotterie 2020';
-  entries = [];
-  accumulatedWeight = 0.0;
-  actualStandings1 = [];
-  actualStandings2 = [];
-
-  results: string[] = [];
-
-  constructor() { }
-
-  ngOnInit() {
-    /*
-    1- Ottawa 18,5% (185)
+/* 2020 standings
+1- Ottawa 18,5% (185)
 2- Vegas 13,5% (135)
 3- Detroit 11,5% (115)
 4- Nashville 9,5% (95)
@@ -32,8 +15,31 @@ export class AppComponent implements OnInit {
 12- Los Angeles 2,5% (25)
 13- Vancouver 2% (20)
 14- San Jose 1,5% (15)
-15- Caroline 1% (10)*/
+15- Caroline 1% (10)
+*/
 
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  title = 'Lotterie 2020';
+  draftDone: boolean = false;
+  displayResultsDone: boolean = false;
+
+  entries = [];
+  accumulatedWeight = 0.0;
+  actualStandings1 = [];
+  actualStandings2 = [];
+  finalStandings = [];
+  results: string[] = [];
+  displayedResults = [];
+  displayedIndex = 0;
+
+  constructor() { }
+
+  ngOnInit() {
     this.addEntry(1, "Ottawa", 18.5);
     this.addEntry(2, "Vegas", 13.5);
     this.addEntry(3, "Detroit", 11.5);
@@ -44,30 +50,56 @@ export class AppComponent implements OnInit {
     this.addEntry(7, "Winnipeg", 6.5);
     this.addEntry(8, "Tampa Bay", 6.0);
     this.addEntry(9, "Montréal", 5.0);
-    this.addEntry(10,"New York Islanders", 3.5);
+    this.addEntry(10, "New York Islanders", 3.5);
 
-    this.addEntry(11,"Toronto", 3.0);
-    this.addEntry(12,"Los Angeles", 2.5);
-    this.addEntry(13,"Vancouver", 2);
-    this.addEntry(14,"San Jose", 1.5);
-    this.addEntry(15,"Caroline", 1);
+    this.addEntry(11, "Toronto", 3.0);
+    this.addEntry(12, "Los Angeles", 2.5);
+    this.addEntry(13, "Vancouver", 2);
+    this.addEntry(14, "San Jose", 1.5);
+    this.addEntry(15, "Caroline", 1);
   }
 
   onDraft(): void {
-
     if (this.results.length >= 3 || this.results.length >= this.entries.length) {
       return;
     }
 
-    let randomTeam = this.getRandomTeam();
-    if (!this.results.includes(randomTeam)) {
-      this.results.push(randomTeam);
+    let i = 0;
+    while (this.results.length < 3) {
+      let randomTeam = this.getRandomTeam();
+      if (!this.results.includes(randomTeam)) {
+        this.results.push(randomTeam);
+        console.log("Résultat de pige:" + randomTeam);
+      }
+      i++;
     }
+
+    for (let team of this.results) {
+
+      if (this.finalStandings.indexOf(team) > 0) {
+        this.finalStandings.splice(this.finalStandings.indexOf(team), 1);
+        this.finalStandings.unshift(team);
+      }
+    }
+    this.draftDone = true;
+  }
+
+  nextTeam():void{
+    if(this.finalStandings.length === this.displayedResults.length){
+      this.displayResultsDone = true;
+      return;
+    }
+
+    let endIndex = this.finalStandings.length -1;
+
+    this.displayedResults.push(this.finalStandings[endIndex - this.displayedIndex]);
+    this.displayedIndex++;
   }
 
   addEntry(rank: number, team: string, weight: number) {
     this.accumulatedWeight += weight;
     this.entries.push({ rank: rank, name: team, accumulatedWeight: this.accumulatedWeight });
+    this.finalStandings.push(team);
 
     if (this.actualStandings1.length < 8) {
       this.actualStandings1.push(rank + "- " + team + "(" + weight + "%)")

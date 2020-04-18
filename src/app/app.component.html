@@ -8,7 +8,7 @@
   <div class="jumbotron">
     <h1 class="display-4">Bienvenue à la lotterie 2020 de la LHSDB</h1>
     <p class="lead">Classement Actuel:</p>
-    <div class="row"> 
+    <div class="row">
       <div class="col">
         <ul class="list-group list-group">
           <li class="list-group-item list-group-item-dark" *ngFor="let team of actualStandings1">
@@ -19,19 +19,36 @@
       <div class="col">
         <ul class="list-group list-group-flush">
           <li class="list-group-item list-group-item-dark" *ngFor="let team of actualStandings2">
-           {{ team }}
+            {{ team }}
           </li>
         </ul>
-      </div>    
+      </div>
     </div>
 
     <div class="my-4">
-    <p class="lead">Cliquez sur le bouton pour piger les équipes gagnantes.</p>
-    <button class="btn btn-primary btn-lg" type="button" (click)="onDraft()">PIGER</button>
+      <p  [hidden]="draftDone" class="lead">Cliquez sur le bouton pour piger les équipes gagnantes.</p>
+      <button [hidden]="draftDone" class="btn btn-primary btn-lg" type="button" (click)="onDraft()">
+        Exécuter la pige
+      </button>
 
-    <hr class="my-4">
-      <div class="alert alert-dark" *ngFor="let team of results; index as i">
-        {{i+1}} {{"- " + team }}
+      <div *ngIf="draftDone">
+        <hr class="my-4">
+        <p class="lead alert alert-success">Pige exécutée! Voci le nouveau classement:</p>
+        <div class="alert alert-dark" *ngFor="let team of displayedResults; index as i">
+          <img src="assets/img/logos/{{team | lowercase}}.jpg" width="69" height="35" class="d-inline-block align-top" alt=""> 
+          {{15-i + "- " }} {{team }}
+        </div>
+        <button [hidden]="displayResultsDone" class="btn btn-primary btn-lg" type="button" (click)="nextTeam()">
+          Prochaine position
+        </button>
       </div>
+
+      <div *ngIf="displayResultsDone">
+        <hr class="my-4">
+        <p class="lead alert alert-success">Le résultat de la pige était le suivant:</p>
+        <div class="alert alert-primary" *ngFor="let team of results; index as i">
+          {{i+1}} {{"- " + team }}
+        </div>
+      </div>
+    </div>
   </div>
-</div>
