@@ -24,7 +24,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Loterie 2020';
+  title = 'Loterie 2021';
   draftDone: boolean = false;
   displayResultsDone: boolean = false;
 
@@ -41,31 +41,32 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.addEntry(1, "Ottawa", 18.5);
-    this.addEntry(2, "Vegas", 13.5);
-    this.addEntry(3, "Detroit", 11.5);
-    this.addEntry(4, "Nashville", 9.5);
-    this.addEntry(5, "Philadelphie", 8.5);
+    this.addEntry(2, "Winnipeg", 13.5);
+    this.addEntry(3, "Seattle", 11.5);
+    this.addEntry(4, "Vegas", 9.5);
+    this.addEntry(5, "Tampa Bay", 8.5);
 
-    this.addEntry(6, "Chicago", 7.5);
-    this.addEntry(7, "Winnipeg", 6.5);
-    this.addEntry(8, "Tampa Bay", 6.0);
-    this.addEntry(9, "Montréal", 5.0);
-    this.addEntry(10, "New York Islanders", 3.5);
+    this.addEntry(6, "Anaheim", 7.5);
+    this.addEntry(7, "Floride", 6.5);
+    this.addEntry(8, "Detroit", 6.0);
+    this.addEntry(9, "San Jose", 4.5);
+    this.addEntry(10, "Montréal", 3.5);
 
-    this.addEntry(11, "Toronto", 3.0);
+    this.addEntry(11, "Minnesota", 3.0);
     this.addEntry(12, "Los Angeles", 2.5);
-    this.addEntry(13, "Vancouver", 2);
-    this.addEntry(14, "San Jose", 1.5);
+    this.addEntry(13, "New York Rangers", 2);
+    this.addEntry(14, "St-Louis", 1.5);
     this.addEntry(15, "Caroline", 1);
+    this.addEntry(16, "New York Islanders", 0.5);
   }
 
   onDraft(): void {
-    if (this.results.length >= 3 || this.results.length >= this.entries.length) {
+    if (this.results.length >= 2 || this.results.length >= this.entries.length) {
       return;
     }
 
     let i = 0;
-    while (this.results.length < 3) {
+    while (this.results.length < 2) {
       let randomTeam = this.getRandomTeam();
       if (!this.results.includes(randomTeam)) {
         this.results.push(randomTeam);

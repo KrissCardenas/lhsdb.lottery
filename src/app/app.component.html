@@ -6,7 +6,7 @@
 
 <div class="container-fluid">
   <div class="jumbotron">
-    <h1 class="display-4">Bienvenue à la loterie 2020 de la LHSDB</h1>
+    <h1 class="display-4">Bienvenue à la loterie 2021 de la LHSDB</h1>
     <p class="lead">Classement Actuel:</p>
     <div class="row">
       <div class="col">
@@ -35,8 +35,8 @@
         <hr class="my-4">
         <p class="lead alert alert-success">Pige exécutée! Voci le nouveau classement:</p>
         <div class="alert alert-dark" *ngFor="let team of displayedResults; index as i">
-          <img src="assets/img/logos/{{team | lowercase}}.jpg" width="69" height="35" class="d-inline-block align-top" alt=""> 
-          {{15-i + "- " }} {{team }}
+          <img src="assets/img/logos/{{team | lowercase}}.jpg" width="69" height="35" class="d-inline-block align-top" alt="">
+          {{16-i + "- " }} {{team }}
         </div>
         <button [hidden]="displayResultsDone" class="btn btn-primary btn-lg" type="button" (click)="nextTeam()">
           Prochaine position
