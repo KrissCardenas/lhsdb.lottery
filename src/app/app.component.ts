@@ -48,15 +48,15 @@ export class AppComponent implements OnInit {
 
     this.addEntry(6, "Anaheim", 7.5);
     this.addEntry(7, "Floride", 6.5);
-    this.addEntry(8, "Detroit", 6.0);
-    this.addEntry(9, "San Jose", 4.5);
-    this.addEntry(10, "Montréal", 3.5);
+    this.addEntry(8, "Montréal", 6.0);
+    this.addEntry(9, "Detroit", 4.5);
+    this.addEntry(10, "San Jose", 3.5);
 
     this.addEntry(11, "Minnesota", 3.0);
-    this.addEntry(12, "Los Angeles", 2.5);
-    this.addEntry(13, "New York Rangers", 2);
+    this.addEntry(12, "Caroline", 2.5);
+    this.addEntry(13, "Los Angeles", 2);
     this.addEntry(14, "St-Louis", 1.5);
-    this.addEntry(15, "Caroline", 1);
+    this.addEntry(15, "New York Rangers", 1);
     this.addEntry(16, "New York Islanders", 0.5);
   }
 
