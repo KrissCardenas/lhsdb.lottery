@@ -24,7 +24,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Loterie 2021';
+  title = 'Loterie 2022';
   draftDone: boolean = false;
   displayResultsDone: boolean = false;
 
@@ -40,24 +40,24 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.addEntry(1, "Ottawa", 18.5);
-    this.addEntry(2, "Winnipeg", 13.5);
-    this.addEntry(3, "Seattle", 11.5);
-    this.addEntry(4, "Vegas", 9.5);
-    this.addEntry(5, "Tampa Bay", 8.5);
+    this.addEntry(1, "Winnipeg", 18.5);
+    this.addEntry(2, "Vegas", 13.5);
+    this.addEntry(3, "Tampa Bay", 11.5);
+    this.addEntry(4, "Ottawa", 9.5);
+    this.addEntry(5, "Seattle", 8.5);
 
-    this.addEntry(6, "Anaheim", 7.5);
-    this.addEntry(7, "Floride", 6.5);
-    this.addEntry(8, "Montréal", 6.0);
-    this.addEntry(9, "Detroit", 4.5);
-    this.addEntry(10, "San Jose", 3.5);
+    this.addEntry(6, "Phoenix", 7.5);
+    this.addEntry(7, "Anaheim", 6.5);
+    this.addEntry(8, "Floride", 6.0);
+    this.addEntry(9, "New York Islanders", 5);
+    this.addEntry(10, "Washington", 3.5);
 
-    this.addEntry(11, "Minnesota", 3.0);
-    this.addEntry(12, "Caroline", 2.5);
-    this.addEntry(13, "Los Angeles", 2);
-    this.addEntry(14, "St-Louis", 1.5);
-    this.addEntry(15, "New York Rangers", 1);
-    this.addEntry(16, "New York Islanders", 0.5);
+    this.addEntry(11, "Dallas", 3.0);
+    this.addEntry(12, "Philadelphie", 2.5);
+    this.addEntry(13, "Vancouver", 2);
+    this.addEntry(14, "Detroit", 1.5);
+    this.addEntry(15, "Pittsburgh", 0.5);
+    this.addEntry(16, "Minnesota", 0.5);
   }
 
   onDraft(): void {
