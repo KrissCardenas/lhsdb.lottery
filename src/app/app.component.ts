@@ -43,8 +43,8 @@ export class AppComponent implements OnInit {
     this.addEntry(1, "Winnipeg", 18.5);
     this.addEntry(2, "Vegas", 13.5);
     this.addEntry(3, "Tampa Bay", 11.5);
-    this.addEntry(4, "Ottawa", 9.5);
-    this.addEntry(5, "Seattle", 8.5);
+    this.addEntry(4, "Seattle", 9.5);
+    this.addEntry(5, "Ottawa", 8.5);
 
     this.addEntry(6, "Phoenix", 7.5);
     this.addEntry(7, "Anaheim", 6.5);
@@ -53,11 +53,11 @@ export class AppComponent implements OnInit {
     this.addEntry(10, "Washington", 3.5);
 
     this.addEntry(11, "Dallas", 3.0);
-    this.addEntry(12, "Philadelphie", 2.5);
-    this.addEntry(13, "Vancouver", 2);
+    this.addEntry(12, "Vancouver", 2.5);
+    this.addEntry(13, "Philadelphie", 2);
     this.addEntry(14, "Detroit", 1.5);
-    this.addEntry(15, "Pittsburgh", 0.5);
-    this.addEntry(16, "Minnesota", 0.5);
+    this.addEntry(15, "Caroline", 0.5);
+    this.addEntry(16, "Edmonton", 0.5);
   }
 
   onDraft(): void {
