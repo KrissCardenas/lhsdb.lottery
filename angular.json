@@ -1,7 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "ac9dc44e-465a-401f-a6a9-5767002e6cce"
+    "analytics": "ac9dc44e-465a-401f-a6a9-5767002e6cce",
+    "defaultCollection": "@angular-eslint/schematics"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -113,8 +114,18 @@
               "devServerTarget": "lhsdb-lottery:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "lhsdb-lottery"
 }
